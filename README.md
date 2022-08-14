@@ -1,2 +1,4 @@
-# Artum-VR_Screen_Cap-Gui
- C:\ProgramData\GameslistGeo11\Neutron.ahk-master (5)\Neutron.ahk-master\Examples\Simple
+framework https://github.com/G33kDude/Neutron.ahk
+
+designed for https://github.com/artumino/VRScreenCap
+
