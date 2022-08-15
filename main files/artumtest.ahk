@@ -57,6 +57,7 @@ Writeupdate(func,values)
 {
 %A_LoopReadLine%
 )
+continue
                         }
                     }
 
@@ -83,3 +84,16 @@ Writeupdate(func,values)
             FileAppend, %NewJson%, %replace%
             FileMove, %replace%, %jton%, 1
         }
+
+
+RunBat()
+{
+    LauncherBat:= A_ScriptDir "\vr.bat"
+    FileDelete, %LauncherBat%
+    FileAppend,
+(
+@echo off
+start "" "%A_ScriptDir%\vr-screen-cap.exe" --config-file="%A_ScriptDir%\artum.json"
+timeout /t 2
+), %LauncherBat%
+}

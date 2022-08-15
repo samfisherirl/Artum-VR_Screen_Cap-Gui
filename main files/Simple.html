@@ -2,9 +2,6 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <script src="jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
     <!--
     The IE Compatibility flag, while not always necessary, makes sure your page
     will always load in IE11+ rendering mode instead of being limited to IE7
@@ -18,6 +15,10 @@
     you write to load in Neutron should contain this meta tag.
   -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     <style>
         html,
         body {
@@ -124,19 +125,6 @@
         }
         /* ** Generic Form Styling ** */
         
-        input[type=text],
-        input[type=email],
-        input[type=number],
-        input[type=password],
-        select {
-            width: 100%;
-            padding: 0.75em;
-            margin-bottom: 1em;
-            border: 1px solid silver;
-            border-radius: 0.35em;
-            box-sizing: border-box;
-        }
-        
         label {
             display: inline-block;
             margin-bottom: 0.5em;
@@ -145,10 +133,10 @@
         }
         
         button {
-            width: 100%;
+            width: 40%;
             background-color: MediumSeaGreen;
             color: white;
-            padding: 14px 20px;
+            padding: 2px 2px;
             margin-bottom: 1em;
             border: none;
             border-radius: 4px;
@@ -296,7 +284,7 @@
         
         form #decrease {
             margin-right: -4px;
-            border-radius: 8px 0 0 8px;
+            border-radius: 2px 0 0 8px;
         }
         
         form #increase {
@@ -315,11 +303,12 @@
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
             margin: 0px;
-            width: 20px;
+            width: 30px;
             height: 20px;
         }
         
         .noselect {
+            font-weight: bold;
             -webkit-touch-callout: none;
             /* iOS Safari */
             -webkit-user-select: none;
@@ -339,7 +328,7 @@
 
 <body>
     <!-- Title Bar -->
-    <header> <span class="title-bar" onmousedown="neutron.DragTitleBar()">Neutron</span> <span class="title-btn" onclick="neutron.Minimize()">0</span> <span class='title-btn title-btn-maximize' onclick='neutron.Maximize()'>1</span> <span class='title-btn title-btn-restore'
+    <header> <span class="title-bar" onmousedown="neutron.DragTitleBar()">github.com/artumino</span> <span class="title-btn" onclick="neutron.Minimize()">0</span> <span class='title-btn title-btn-maximize' onclick='neutron.Maximize()'>1</span> <span class='title-btn title-btn-restore'
             onclick='neutron.Maximize()'>2</span> <span class="title-btn title-btn-close" onclick="neutron.Close()">r</span>
     </header>
     <!-- Main content area -->
@@ -350,9 +339,9 @@
                 <tbody>
                     <tr>
                         <td>
-                            <h1>VR_Screen_Cap by Artumino </h1>
+                            <h1>VR_Screen_Cap by Artumino <a onclick="ahk.Launch(event)"><button type="button"  class="btn btn-light">Launch App</button></a></h1>
                         </td>
-                        <td style="width:45%; text-align: right"><img src="../../../../../../Users/Sam/Desktop/AHK WEBSITE TO AHK GUI/Examples - Copy (4)/Simple/BOOTSTRAP VR MOD DISCORD/Untitled-3.png" width="182" height="123" alt="" /> </td>
+                        <td style="width:45%; text-align: right"><img src="Untitled-3.png" width="322" height="223" alt="" /> </td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -366,50 +355,55 @@
                 <div class="row"></div>
                 <div class="container" style="width: 100%;margin: 0px;margin-right: 0px;padding: 0px;">
                     <div class="row" style="width: 100%;margin: 0px;margin-left: 0px;margin-right: 0px;">
-                        <div style="width: 55%; ">
+                        <div style="width: 50%; ">
                             <h3>How to Use:</h3>
-                            - Setup geo-11's files for the game
+                            - Install Geo files of choice
                             <br/> In d3dxdm.ini set direct_mode to katanga_vr,
                             <br/>- Adjust dm_separation to your likings (usually 20-30 is the range for VR viewing)<br/> - Run the game <br/> - Start VRScreenCap<br/> - The feed should then be visible on a curved screen. <br/>- In case the video feed
                             freezes, restart VRScreenCap.</div>
                         <div style="width: 45%; text-align: right;">
-                            <h3><b>Change Settings.</b></h3>
+                            <h4><b>Change Settings.</b>
+                            </h4>
                             <form onsubmit="ahk.Submitted(event)">
-                                <h4>Resolution:</h4>
+                                <h5>Distance:</h5>
                                 <h5>
                                     <div class="number">
                                         <span class="minus noselect" style="width:45px; height:50px;color:black;">-</span>
-                                        <input style="width:35%" type="text" id="myH2data" value="1 " />
+                                        <input style="width:35%" type="text" id="dist" value="1 " />
                                         <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
 
                                     </div>
                                 </h5>
-                                <h4>Scale:</h4>
-                                <h5>
-                                    <div class="number ">
-                                        <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
-                                        <input style="width:35% " name="scale " type="text " value="1 " />
-                                        <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+                                <h4>Scale:</h5>
+                                    <h5>
+                                        <div class="number ">
+                                            <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
+                                            <input style="width:35% " id="scale" name="scale " type="text " value="1 " />
+                                            <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
 
-                                    </div>
-                                </h5>
-                                <h4>Curve:</h4>
-                                <h5>
-                                    <div class="number ">
-                                        <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
-                                        <input style="width:35% " name="curve " type="text " value="1 " />
-                                        <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+                                        </div>
+                                    </h5>
+                                    <h5>Curve (x):</h5>
+                                    <h5>
+                                        <div class="number ">
+                                            <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
+                                            <input style="width:35% " name="curve " type="text " id="x" value="1000" />
+                                            <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
 
-                                    </div>
-                                </h5>
+                                        </div>
+                                    </h5>
+                                    <h5>Curve (y):</h5>
+                                    <h5>
+                                        <div class="number ">
+                                            <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
+                                            <input style="width:35% " name="curve " type="text " id="y" value="1 " />
+                                            <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+
+                                        </div>
+                                    </h5>
                         </div>
-                        </form>
                     </div>
-                    <button onclick="ahk.Clicked(event) ">Click Me!</button>
 
-                    <h2>Example Form</h2>
-
-                    <button type="submit ">Submit</button>
                     <script>
                         $(document).ready(function() {
                             $('.minus').click(function() {

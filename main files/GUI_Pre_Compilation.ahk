@@ -7,6 +7,7 @@
 */
 
 #NoEnv
+SetWorkingDir, %A_ScriptDir%
 SetBatchLines, -1
 
 ; Include the Neutron library
@@ -18,29 +19,26 @@ global replace := A_ScriptDir "\replace.txt"
 neutron := new NeutronWindow()
 neutron.Load("Simple.html")
 
+FileInstall, bootstrap.min.css, bootstrap.min.css
+FileInstall, jquery.min.js, jquery.min.js
+FileInstall, bootstrap.min.js, bootstrap.min.js 
+FileInstall, Untitled-3.png, Untitled-3.png
 ; Use the Gui method to set a custom label prefix for GUI events. This code is
 ; equivalent to the line `Gui, name:+LabelNeutron` for a normal GUI.
 neutron.Gui("+LabelNeutron")
-
+RunBat()
 LoadJson()
 ; Show the GUI, with an initial size of 800 x 600. Unlike with a normal GUI
 ; this size includes the title bar area, so the "client" area will be slightly
 ; shorter vertically than if you were to make this GUI the normal way.
 neutron.Show("w800 h800")
-SetTimer, DynamicContent, 5000
+SetTimer, DynamicContent, 1000
 return
 
 ; FileInstall all your dependencies, but put the FileInstall lines somewhere
 ; they won't ever be reached. Right below your AutoExecute section is a great
 ; location!
-FileInstall, Simple.html, Simple.html
-FileInstall, Neutron.ahk, Neutron.ahk
-FileInstall, artumtest.ahk, artumtest.ahk
-FileInstall, bootstrap.min.css, bootstrap.min.css
-FileInstall, jquery.min.js, jquery.min.js
-FileInstall, bootstrap.min.js, bootstrap.min.js
-FileInstall, artumtest.ahk, artumtest.ahk
-FileInstall, Untitled-3.png, Untitled-3.png
+FileInstall, Simple.html, Simple.html 
 
 ; The built in GuiClose, GuiEscape, and  BrowseButton()GuiDropFiles event handlers will work
 ; with Neutron GUIs. Using them is the current best practice for handling these
@@ -227,7 +225,13 @@ Submit(neutron, event)
 
     ; Show the output
     MsgBox, %out%
-} 
+}
+
+Launch(neutron, event)
+{
+    run, vr.bat, %A_ScriptDir%
+}
+
 
 ; --- Dynamic Content Generation ---
 
