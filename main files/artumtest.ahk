@@ -9,17 +9,18 @@ Doer()
     ReturnJson:=[]
     Loop, Read, %jton%
     {
-        if !InStr(A_LoopReadLine,"{")
+        jsonarray := StrSplit(A_LoopReadLine, Colon, ",") ; Omits
+
+        if (A_Index!="1")
         {
-            if !InStr(A_LoopReadLine,"}")
-            {
-                jsonarray := StrSplit(A_LoopReadLine, Colon, ",") ; Omits periods.  
+            if (A_Index!="6")
+            { 
                 A1:=jsonarray[1]
                 B1:=jsonarray[2]
                 ReturnJson[A_Index] := B1 
             }
         }
-    } 
+    }
     return ReturnJson
 }
 

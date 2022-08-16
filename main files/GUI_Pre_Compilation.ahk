@@ -13,7 +13,7 @@ SetBatchLines, -1
 ; Include the Neutron library
 #Include Neutron.ahk
 #Include artumtest.ahk
-#Include OTA.ahk 
+#Include assets\OTA.ahk 
 global jton := A_ScriptDir "\artum.json"
 global replace := A_ScriptDir "\replace.txt"
 ; Create a new NeutronWindow and navigate to our HTML page
@@ -53,7 +53,7 @@ return
 DynamicContent()
 {
     global neutron
-	sleep, 100
+	sleep, 500
 	ReturnJson:=[]
     ReturnJson:=Doer()
 	
