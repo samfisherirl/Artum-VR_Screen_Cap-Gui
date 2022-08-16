@@ -4,6 +4,14 @@ framework: https://github.com/G33kDude/Neutron.ahk
 
 testing: https://streamable.com/k56zr7
 
+Things I need to do:
+
+- github downloader
+
+- close gui when not active with menu place holder for resources saving
+
+- hotkeys
+
 drop GUI ahk file in  'main files' folder to run
 
 lots to do and clean up. safe to use, not functional. 
