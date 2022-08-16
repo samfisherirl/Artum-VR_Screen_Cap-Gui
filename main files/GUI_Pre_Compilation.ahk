@@ -13,8 +13,7 @@ SetBatchLines, -1
 ; Include the Neutron library
 #Include Neutron.ahk
 #Include artumtest.ahk
-#Include assets\OTA.ahk
-#Include assets\JSON.ahk
+#Include OTA.ahk 
 global jton := A_ScriptDir "\artum.json"
 global replace := A_ScriptDir "\replace.txt"
 ; Create a new NeutronWindow and navigate to our HTML page
@@ -158,7 +157,8 @@ Example1_MouseMove(neutron, event)
 
 Update(neutron, event)
 {
-msgbox % OTA.checkupd()
+event.preventDefault()
+OTA.checkupd()
 }
 
 Example1_MouseLeave(neutron, event)
