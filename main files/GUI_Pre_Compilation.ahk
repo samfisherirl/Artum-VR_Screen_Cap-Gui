@@ -13,6 +13,8 @@ SetBatchLines, -1
 ; Include the Neutron library
 #Include Neutron.ahk
 #Include artumtest.ahk
+#Include assets\OTA.ahk
+#Include assets\JSON.ahk
 global jton := A_ScriptDir "\artum.json"
 global replace := A_ScriptDir "\replace.txt"
 ; Create a new NeutronWindow and navigate to our HTML page
@@ -28,6 +30,7 @@ FileInstall, Untitled-3.png, Untitled-3.png
 neutron.Gui("+LabelNeutron")
 RunBat()
 LoadJson()
+
 ; Show the GUI, with an initial size of 800 x 600. Unlike with a normal GUI
 ; this size includes the title bar area, so the "client" area will be slightly
 ; shorter vertically than if you were to make this GUI the normal way.
@@ -151,6 +154,11 @@ Example1_MouseMove(neutron, event)
     ; offsetX and offsetY contain the mouse position relative to the event that
     ; fired the event.
     event.target.innerText := Format("({:i}, {:i})", event.offsetX, event.offsetY)
+}
+
+Update(neutron, event)
+{
+msgbox % OTA.checkupd()
 }
 
 Example1_MouseLeave(neutron, event)
