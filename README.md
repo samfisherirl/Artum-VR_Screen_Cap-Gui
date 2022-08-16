@@ -12,6 +12,8 @@ Things I need to do:
 
 - hotkeys
 
+- visual log reader
+
 drop GUI ahk file in  'main files' folder to run
 
 lots to do and clean up. safe to use, not functional. 
