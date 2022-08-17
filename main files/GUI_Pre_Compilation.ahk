@@ -21,6 +21,7 @@ neutron := new NeutronWindow()
 neutron.Load("Simple.html")
 
 FileInstall, bootstrap.min.css, bootstrap.min.css
+FileInstall, pgia.js, pgia.js
 FileInstall, jquery.min.js, jquery.min.js
 FileInstall, bootstrap.min.js, bootstrap.min.js 
 FileInstall, Untitled-3.png, Untitled-3.png
