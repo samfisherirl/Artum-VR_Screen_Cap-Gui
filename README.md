@@ -2,7 +2,7 @@ made for: https://github.com/artumino/VRScreenCap
 
 framework: https://github.com/G33kDude/Neutron.ahk
 
-download: https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases/download/v0.2/GUI_Compiled.7z
+download: [https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases/download/v0.2/GUI_Compiled.7z](https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases)
 
 testing: https://streamable.com/k56zr7
 
