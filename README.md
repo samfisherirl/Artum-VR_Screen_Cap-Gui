@@ -2,6 +2,8 @@ made for: https://github.com/artumino/VRScreenCap
 
 framework: https://github.com/G33kDude/Neutron.ahk
 
+download: https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases/download/v0.2/GUI_Compiled.7z
+
 testing: https://streamable.com/k56zr7
 
 Things I need to do:
