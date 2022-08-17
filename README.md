@@ -18,4 +18,5 @@ drop GUI ahk file in  'main files' folder to run
 
 lots to do and clean up. safe to use, not functional. 
 
-![image](https://user-images.githubusercontent.com/98753696/185018784-d2d8fe32-98ae-404d-9853-4d68c1f504f7.png)
+ ![image](https://user-images.githubusercontent.com/98753696/185019642-465f93bc-9319-4d13-8e3e-91a93a8a4358.png)
+
