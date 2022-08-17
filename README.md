@@ -21,6 +21,4 @@ drop GUI ahk file in  'main files' folder to run
 requires autohotkey v1 if uncompiled, compiled gui runs standalone. 
 
 lots to do and clean up. safe to use, not functional. 
-
- ![image](https://user-images.githubusercontent.com/98753696/185019642-465f93bc-9319-4d13-8e3e-91a93a8a4358.png)
-
+ ![image](https://user-images.githubusercontent.com/98753696/185177113-24e9d256-77b9-4150-9f4a-3d8efb2e8399.png)
