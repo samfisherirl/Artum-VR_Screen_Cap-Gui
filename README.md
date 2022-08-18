@@ -2,9 +2,12 @@ made for: https://github.com/artumino/VRScreenCap
 
 framework: https://github.com/G33kDude/Neutron.ahk
 
-download: https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases/download/v0.2/GUI_Compiled.7z
+download: https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases
 
 testing: https://streamable.com/k56zr7
+
+https://gfycat.com/anxiousringedbarbet
+
 
 Things I need to do:
 
@@ -20,7 +23,6 @@ drop GUI ahk file in  'main files' folder to run
 
 requires autohotkey v1 if uncompiled, compiled gui runs standalone. 
 
-lots to do and clean up. safe to use, not functional. 
+lots to do and clean up. safe to use, at your own risk.
 
- ![image](https://user-images.githubusercontent.com/98753696/185019642-465f93bc-9319-4d13-8e3e-91a93a8a4358.png)
-
+ ![image](https://user-images.githubusercontent.com/98753696/185177113-24e9d256-77b9-4150-9f4a-3d8efb2e8399.png)
