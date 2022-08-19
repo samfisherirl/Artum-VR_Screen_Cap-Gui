@@ -170,38 +170,62 @@ Example1_MouseLeave(neutron, event)
 }
 
 ; --- Update page by Hotkey ---
+ 
 
-; Limit this hotkey to only fire while our Neutron window is the active window.
-#if WinActive("ahk_id" neutron.hWnd)
+~PgUp::UpdateKeyExample(neutron, "#dist")
+~PgDn::LowerKey(neutron, "#dist") 
+~Home::Scaleup(neutron, "#scale")
+~End::Scaledown(neutron, "#scale") 
 
-~1::UpdateKeyExample(neutron, "1", "active")
-~2::UpdateKeyExample(neutron, "2", "active")
-~3::UpdateKeyExample(neutron, "3", "active")
-~4::UpdateKeyExample(neutron, "4", "active")
-~1 Up::UpdateKeyExample(neutron, "1", "")
-~2 Up::UpdateKeyExample(neutron, "2", "")
-~3 Up::UpdateKeyExample(neutron, "3", "")
-~4 Up::UpdateKeyExample(neutron, "4", "")
-
-UpdateKeyExample(neutron, keyName, className) {
+UpdateKeyExample(neutron, fieldID) {
     ; Use the JavaScript function document.querySelectorAll to find elements
-    ; based on a CSS selector.
-    keyDivs := neutron.doc.querySelectorAll(".keys > div")
+    ; based on a CSS selector. 
 
+    currentnumber := neutron.qs("#dist").value
+    currentnumber:=currentnumber+1
     ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
     ; for loop.
-    for i, div in neutron.Each(keyDivs)
-    {
-        ; Check if the div's innerText matches the key that was pressed
-        if (div.innerText == keyName)
-        {
-            ; Update the div's className property to change its style on the fly
-            div.className := className
-        }
-    }
+    neutron.qs("#dist").value:=currentnumber
+    
+}
+ 
+LowerKey(neutron, fieldID) {
+    ; Use the JavaScript function document.querySelectorAll to find elements
+    ; based on a CSS selector. 
+
+    currentnumber := neutron.qs("#dist").value
+    if (currentnumber>0)
+    currentnumber:=currentnumber-1
+    ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
+    ; for loop.
+    neutron.qs("#dist").value:=currentnumber
+    
 }
 
-#if
+Scaleup(neutron, fieldID) {
+    ; Use the JavaScript function document.querySelectorAll to find elements
+    ; based on a CSS selector. 
+
+    currentnumber := neutron.qs("#scale").value
+    currentnumber:=currentnumber+1
+    ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
+    ; for loop.
+    neutron.qs("#scale").value:=currentnumber
+    
+}
+ 
+Scaledown(neutron, fieldID) {
+    ; Use the JavaScript function document.querySelectorAll to find elements
+    ; based on a CSS selector. 
+
+    currentnumber := neutron.qs("#scale").value
+    if (currentnumber>0)
+    currentnumber:=currentnumber-1
+    ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
+    ; for loop.
+    neutron.qs("#scale").value:=currentnumber
+    
+}
 
 ; --- Pass form data to AHK ---
 
@@ -238,7 +262,15 @@ Submit(neutron, event)
 
 Launch(neutron, event)
 {
+    MsgBox 0x44, Delayed Launch?, Would you like to delay the launch of VRSCREENCAP by 15 seconds`, allowing you to switch to the game?
+
+IfMsgBox Yes, {
+Sleep 15000
     run, vr.bat, %A_ScriptDir%
+} Else IfMsgBox No, {
+
+    run, vr.bat, %A_ScriptDir%
+}
 }
 
 

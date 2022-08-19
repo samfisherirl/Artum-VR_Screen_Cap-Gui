@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+    The IE Compatibility flag, while not always necessary, makes sure your page
+    will always load in IE11+ rendering mode instead of being limited to IE7
+    features and behaviors. While IE11 is still relatively old as a rendering
+    engine, it supports the most fundamental parts needed for modern webpages to
+    function correctly.
+
+    Neutron will do its best to enable IE11+ rendering mode regardless of this
+    tag, but in current releases pages will not render correctly when compiled
+    unless this tag is present. Because of that and other edge cases, any page
+    you write to load in Neutron should contain this meta tag.
+  -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="jquery.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <style>html, body { width: 100%; height: 100%; background-color: #444; margin: 0; padding: 0; font-family: sans-serif; } body { display: flex; flex-direction: column; } /* ** Window Title ** */header { width: 100%; display: flex; background-color: #444; font-family: Segoe UI; font-size: 9pt; } .title-bar { padding: 0.35em 0.5em; flex-grow: 1; } .td { width: 48%; } .title-btn { padding: 0.35em 1.0em; cursor: pointer; vertical-align: bottom; font-family: Webdings; font-size: 11pt; } body .title-btn-restore { display: none; } .h1 { font-size: 15px; } body.neutron-maximized .title-btn-restore { display: block; } body.neutron-maximized .title-btn-maximize { display: none; } .title-btn:hover { background: rgba(0, 0, 0, .2); } .title-btn-close:hover { background: #dc3545; } /* ** Window Client Area ** */.main { /* Some settings for everything in the client area */ font-size: 12pt; } .container { /* Only render items in the center 600px of the client area */ max-width: 700px; margin: auto; } /* ** Bootstrap Style Flexbox Utilities ** */.row { /* A row is basically just a flexbox container */ display: flex; flex-wrap: wrap; justify-content: space-between; } .w-50 { /* Fill almost half the row, leaving a bit of margin */ width: 48%; } .w-100 { /* Fill the entire row */ width: 100%; } @media screen and (max-width: 500px) { /* When the window gets shrunk */ .w-50 {  /* Reflow half-size elements to fill the entire row */  width: 100%; } } /* ** Generic Form Styling ** */label { display: inline-block; margin-bottom: 0.5em; font-weight: bold; font-size: 0.8em; } button { width: 45%; background-color: rgb(247, 244, 244); color: white; padding: 2px 2px; margin-bottom: 1em; border: none; border-radius: 4px; cursor: pointer; } input[type=submit]:hover { background-color: #45a049; } /* https://stackoverflow.com/a/17406564 */fieldset { margin-bottom: 1em; margin-top: 1.5em; border: 1px solid silver; border-radius: 0.35em; padding-top: 1em; box-sizing: border-box; } legend { background: white; } fieldset>legend { float: left; margin-top: -1.5em; } fieldset>legend+* { clear: both; } /* ** Giant Key Styling ** */.keys { display: flex; justify-content: space-around; flex-wrap: wrap; } .keys>div { width: 100px; height: 100px; margin: 10px; padding: 0; background: silver; text-align: center; font-size: 90px; color: white; border-radius: 1rem; } .keys>div.active { background: MediumSeaGreen; } /* ** Table Styling ** */table { width: 100%; border-collapse: collapse; table-layout: fixed; } thead, tr:nth-child(even) { /* Color header and every other row */ background: #eee; } header { background: #444; color: white; } .main { background: #444; color: white; } .main { background: #444; color: white; } input { margin: 0.25em; padding: 0.5em; border: none; background: #333; color: white; border-radius: 0.25em; } .minus, .plus { width: 15px; height: 15px; background: #f2f2f2; border-radius: 7px; padding: 8px 5px 8px 5px; border: 2px solid #ddd; display: inline-block; vertical-align: middle; text-align: center; } button { background: slategray; border: none; color: white; padding: 0.25em 0.5em; border-radius: 0.25em; } .flex { display: flex; } .flex div { flex-basis: 50%; display: inline-block; } .value-button { display: inline-block; border: 1px solid #ddd; margin: 0px; width: 40px; height: 20px; text-align: center; vertical-align: middle; padding: 11px 0; background: black; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .value-button:hover { cursor: pointer; } form #decrease { margin-right: -4px; border-radius: 2px 0 0 8px; } form #increase { margin-left: -4px; border-radius: 0 8px 8px 0; } form #input-wrap { margin: 0px; padding: 0px; } input#number { text-align: center; border: none; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; margin: 0px; width: 30px; height: 20px; } .noselect { font-weight: bold; -webkit-touch-callout: none;  /* iOS Safari */ -webkit-user-select: none;  /* Safari */ -khtml-user-select: none;  /* Konqueror HTML */ -moz-user-select: none;  /* Old versions of Firefox */ -ms-user-select: none;  /* Internet Explorer/Edge */ user-select: none;  /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */ }</style>
+        <script>/* Pinegrow Interactions, do not remove */ (function(){try{if(!document.documentElement.hasAttribute('data-pg-ia-disabled')) { window.pgia_small_mq=typeof pgia_small_mq=='string'?pgia_small_mq:'(max-width:767px)';window.pgia_large_mq=typeof pgia_large_mq=='string'?pgia_large_mq:'(min-width:768px)';var style = document.createElement('style');var pgcss='html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';if(document.documentElement.hasAttribute('data-pg-id') && document.documentElement.hasAttribute('data-pg-mobile')) {pgia_small_mq='(min-width:0)';pgia_large_mq='(min-width:99999px)'} pgcss+='@media ' + pgia_small_mq + '{ html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}}';pgcss+='@media ' + pgia_large_mq + '{html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}}';style.innerHTML=pgcss;document.querySelector('head').appendChild(style);}}catch(e){console&&console.log(e);}})()</script>
+    </head>
+    <body>
+        <!-- Title Bar -->
+        <header> <span class="title-bar" onmousedown="neutron.DragTitleBar()">github.com/artumino</span> <span class="title-btn" onclick="neutron.Minimize()">0</span> <span class='title-btn title-btn-maximize' onclick='neutron.Maximize()'>1</span> <span class='title-btn title-btn-restore' onclick='neutron.Maximize()'>2</span> <span class="title-btn title-btn-close" onclick="neutron.Close()">r</span>
+        </header>
+        <!-- Main content area -->
+        <div class="main">
+            <div class="container">
+                <table width="90%" border="0">
+                    <tbody>
+                        <tr>
+                            <td> <h1 style="font-family: Calibri;">VR_<b>S</b>creen_<b>C</b>ap by Artumino<br/><a onclick="ahk.Launch(event)"><button type="button" class="btn btn-outline-danger">Launch</button></a> <a onclick="ahk.Update(event)"><button type="button" class="btn btn-outline-danger">Update</button></a></h1> </td>
+                            <td style="width:45%; text-align: right" height="221">
+                                <img src="Untitled-3.png" width="300" height="211" alt="" data-pg-ia='{"l":[{"a":"flip","trg":"now"}]}'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p> <section class="pg-empty-placeholder"></section> <div class="row"></div> <div class="container" style="width: 100%;margin: 0px;margin-right: 0px;padding: 0px;">
+                        <div class="row" style="width: 100%;margin: 0px;margin-left: 0px;margin-right: 0px;">
+                            <div style="width: 50%; ">
+                                <h3>How to Use:</h3>
+                                - Install Geo files of choice<br/> - Run the game before launching <br/> - Place&nbsp;VR&nbsp;Screen Cap next to this app or click update. <br/>
+                            </div>
+                            <div style="width: 48%; text-align: left;"> <br/> - Launch&nbsp;VR_Screen_Cap<br/> - 'Home' and 'End' keys change scale. <br/> - 'Page up' and 'Page down' change Distance. <br/>
+                            </div>
+                            <div style="width: 50%; ">
+                                <h4><br/> Distance:</h5>
+                                <h4> <div class="number"> <span class="minus noselect" style="width:45px; height:50px;color:black;">-</span>
+                                        <input style="width:35%" type="text" id="dist" value="1 "/> <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+                                    </div> </h5>
+                                <h4>Scale:</h5>
+                                <h5> <div class="number "> <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
+                                        <input style="width:35% " id="scale" name="scale " type="text " value="1 "/><span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+                                    </div> </h5>
+                            </div>
+                            <div style="width: 50%; ">
+                                <h4><br/>Curve (horizontal):</h5>
+                                <h4> <div class="number "> <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
+                                        <input style="width:35% " name="curve " type="text " id="x" value="1000"/> <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+                                    </div> </h5>
+                                <h4>Curve (vertical):</h5>
+                                <h4> <div class="number "> <span class="minus noselect " style="width:45px; height:50px;color:black; ">-</span>
+                                        <input style="width:35% " name="curve " type="text " id="y" value="1 "/> <span class="plus noselect " style="width:45px; height:50px; color:black ">+</span>
+                                    </div> </h5>
+                            </div>
+                            <script>
+                            $(document).ready(function() {
+                                $('.minus').click(function() {
+                                    var $input = $(this).parent().find('input');
+                                    var count = parseInt($input.val()) - 1;
+                                    count = count < 1 ? 0 : count;
+                                    $input.val(count);
+                                    $input.change();
+                                    return false;
+                                });
+                                $('.plus').click(function() {
+                                    var $input = $(this).parent().find('input');
+                                    $input.val(parseInt($input.val()) + 1);
+                                    $input.change();
+                                    return false;
+                                });
+                            });
+                        </script>
+                        </div>
+                    </div> 
+            </div>
+            <!-- /container -->
+            <script src="pgia.js"></script>
+
+        <script src="pgia/lib/pgia.js"></script>
+</html>
