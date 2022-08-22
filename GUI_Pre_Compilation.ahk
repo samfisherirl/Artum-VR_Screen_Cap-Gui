@@ -266,10 +266,16 @@ Launch(neutron, event)
 
 IfMsgBox Yes, {
 Sleep 15000
-    run, vr.bat, %A_ScriptDir%
+    run, vr.bat, %A_ScriptDir%, Min
+    Send, {LAlt down}
+    Send, {Tab}
+    Send, {LAlt up}
 } Else IfMsgBox No, {
 
-    run, vr.bat, %A_ScriptDir%
+    run, vr.bat, %A_ScriptDir%, Min
+    Send, {LAlt down}
+    Send, {Tab}
+    Send, {LAlt up}
 }
 }
 
