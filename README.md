@@ -1,4 +1,4 @@
-made for: https://github.com/artumino/VRScreenCap
+made for (and all credit goes to): https://github.com/artumino/VRScreenCap
 
 framework: https://github.com/G33kDude/Neutron.ahk
 
