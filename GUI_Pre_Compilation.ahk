@@ -16,6 +16,9 @@ SetBatchLines, -1
 #Include assets\OTA.ahk 
 global jton := A_ScriptDir "\artum.json"
 global replace := A_ScriptDir "\replace.txt"
+global DirLocal := A_AppDataCommon "\artum"
+global Logger := DirLocal "\log.txt"
+global Logger1 := DirLocal "\log1.txt"
 ; Create a new NeutronWindow and navigate to our HTML page
 neutron := new NeutronWindow()
 neutron.Load("Simple.html")
@@ -30,12 +33,12 @@ FileInstall, Untitled-3.png, Untitled-3.png
 neutron.Gui("+LabelNeutron")
 RunBat()
 LoadJson()
-
 ; Show the GUI, with an initial size of 800 x 600. Unlike with a normal GUI
 ; this size includes the title bar area, so the "client" area will be slightly
 ; shorter vertically than if you were to make this GUI the normal way.
 neutron.Show("w800 h800")
 SetTimer, DynamicContent, 1000
+LoadUpdate()
 return
 
 ; FileInstall all your dependencies, but put the FileInstall lines somewhere
@@ -54,89 +57,107 @@ return
 DynamicContent()
 {
     global neutron
-	sleep, 500
-	ReturnJson:=[]
+
+    sleep, 500
+    ReturnJson:=[]
     ReturnJson:=Doer()
-	
+
     x:=ReturnJson[4]
     x:=x * 10
     y:=ReturnJson[5]
     y:=y * 10
     Dist:=ReturnJson[2]
     Scale:=ReturnJson[3] 
-
 
     DistCheck := neutron.qs("#dist").value
     scaleCheck := neutron.qs("#scale").value
     xCheck := neutron.qs("#x").value
     yCheck := neutron.qs("#y").value
-	x:=Ceil(x)
-	y:=Ceil(y)
-	Dist:=Ceil(Dist)
-	Scale:=Ceil(Scale)
- 
-	if (Dist!=DistCheck)
-	{
-		func:="distance" 
-		values:=DistCheck
-		values:=values ".0"
-		Writeupdate(func,values)
-		goto, done
-	}
-	if (Scale!=scaleCheck)
-	{
-		func:="scale"
-		values:=scaleCheck
-		values:=values ".0"
-		Writeupdate(func,values)
-		goto, done
-	}
-	if (x!=xCheck)
-	{
+    x:=Ceil(x)
+    y:=Ceil(y)
+    Dist:=Ceil(Dist)
+    Scale:=Ceil(Scale)
 
-		func:="x_curvature"
-		values:=xCheck
-		values:=values / 10
-		values:=Round(values, 1)
-		Writeupdate(func,values)
-		goto, done
-	}
-	if (y!=yCheck)
-	{
+    if (Dist!=DistCheck)
+    {
+        func:="distance" 
+        values:=DistCheck
+        values:=values ".0"
+        Writeupdate(func,values)
+        goto, done
+    }
+    if (Scale!=scaleCheck)
+    {
+        func:="scale"
+        values:=scaleCheck
+        values:=values ".0"
+        Writeupdate(func,values)
+        goto, done
+    }
+    if (x!=xCheck)
+    {
 
-		func:="y_curvature"
-		values:=yCheck
-		values:=values / 10
-		values:=Round(values, 1)
-		Writeupdate(func,values)
-		goto, done
-	}
-	done: 
-	sleep, 100
+        func:="x_curvature"
+        values:=xCheck
+        values:=values / 10
+        values:=Round(values, 1)
+        Writeupdate(func,values)
+        goto, done
+    }
+    if (y!=yCheck)
+    {
+
+        func:="y_curvature"
+        values:=yCheck
+        values:=values / 10
+        values:=Round(values, 1)
+        Writeupdate(func,values)
+        goto, done
+    }
+done: 
+    sleep, 100
 }
 
 LoadJson()
-{  
+{ 
     global neutron
     ReturnJson:=Doer()
- 
+
     x:=ReturnJson[4]
     x:=x * 10
     y:=ReturnJson[5]
     y:=y * 10
     Dist:=ReturnJson[2]
     Scale:=ReturnJson[3] 
-	;Trim(Scale) 
-	;Round(Scale) 
-	x:=Ceil(x)
-	y:=Ceil(y)
-	Dist:=Ceil(Dist)
-	Scale:=Ceil(Scale)
+    ;Trim(Scale) 
+    ;Round(Scale) 
+    x:=Ceil(x)
+    y:=Ceil(y)
+    Dist:=Ceil(Dist)
+    Scale:=Ceil(Scale)
 
-	neutron.qs("#x").value:=x
-	neutron.qs("#y").value:=y
-	neutron.qs("#dist").value:=Dist
-	neutron.qs("#scale").value:=Scale 
+    neutron.qs("#x").value:=x
+    neutron.qs("#y").value:=y
+    neutron.qs("#dist").value:=Dist
+    neutron.qs("#scale").value:=Scale 
+}
+
+LoadUpdate()
+{ 
+    global neutron
+
+    global updater
+    OTA.currentvers()
+    if (updater="no")
+    {
+    }
+    if (updater="never")
+    {
+        sleep, 260
+        buttonthing:="Install" 
+        neutron.qs("#repairupdate").innerText:=buttonthing
+    }
+    ;} 
 }
 
 ; --- Trigger AHK by page events ---
@@ -158,8 +179,8 @@ Example1_MouseMove(neutron, event)
 
 Update(neutron, event)
 {
-event.preventDefault()
-OTA.checkupd()
+    event.preventDefault() 
+    OTA.checkupd()
 }
 
 Example1_MouseLeave(neutron, event)
@@ -170,7 +191,6 @@ Example1_MouseLeave(neutron, event)
 }
 
 ; --- Update page by Hotkey ---
- 
 
 ~PgUp::UpdateKeyExample(neutron, "#dist")
 ~PgDn::LowerKey(neutron, "#dist") 
@@ -186,20 +206,20 @@ UpdateKeyExample(neutron, fieldID) {
     ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
     ; for loop.
     neutron.qs("#dist").value:=currentnumber
-    
+
 }
- 
+
 LowerKey(neutron, fieldID) {
     ; Use the JavaScript function document.querySelectorAll to find elements
     ; based on a CSS selector. 
 
     currentnumber := neutron.qs("#dist").value
     if (currentnumber>0)
-    currentnumber:=currentnumber-1
+        currentnumber:=currentnumber-1
     ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
     ; for loop.
     neutron.qs("#dist").value:=currentnumber
-    
+
 }
 
 Scaleup(neutron, fieldID) {
@@ -211,20 +231,20 @@ Scaleup(neutron, fieldID) {
     ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
     ; for loop.
     neutron.qs("#scale").value:=currentnumber
-    
+
 }
- 
+
 Scaledown(neutron, fieldID) {
     ; Use the JavaScript function document.querySelectorAll to find elements
     ; based on a CSS selector. 
 
     currentnumber := neutron.qs("#scale").value
     if (currentnumber>0)
-    currentnumber:=currentnumber-1
+        currentnumber:=currentnumber-1
     ; Use Neutron's .Each() method to iterate through the HTMLCollection in a
     ; for loop.
     neutron.qs("#scale").value:=currentnumber
-    
+
 }
 
 ; --- Pass form data to AHK ---
@@ -264,21 +284,20 @@ Launch(neutron, event)
 {
     MsgBox 0x44, Delayed Launch?, Would you like to delay the launch of VRSCREENCAP by 15 seconds`, allowing you to switch to the game?
 
-IfMsgBox Yes, {
-Sleep 15000
-    run, vr.bat, %A_ScriptDir%, Min
-    Send, {LAlt down}
-    Send, {Tab}
-    Send, {LAlt up}
-} Else IfMsgBox No, {
+    IfMsgBox Yes, {
+        Sleep 15000
+        run, vr.bat, %A_ScriptDir%, Min
+        Send, {LAlt down}
+        Send, {Tab}
+        Send, {LAlt up}
+    } Else IfMsgBox No, {
 
-    run, vr.bat, %A_ScriptDir%, Min
-    Send, {LAlt down}
-    Send, {Tab}
-    Send, {LAlt up}
+        run, vr.bat, %A_ScriptDir%, Min
+        Send, {LAlt down}
+        Send, {Tab}
+        Send, {LAlt up}
+    }
 }
-}
-
 
 ; --- Dynamic Content Generation ---
 
