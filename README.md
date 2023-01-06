@@ -5,10 +5,7 @@ framework: https://github.com/G33kDude/Neutron.ahk
 download: https://github.com/samfisherirl/Artum-VR_Screen_Cap-Gui/releases
 
 testing: https://streamable.com/k56zr7
-
-https://gfycat.com/anxiousringedbarbet
-
-
+ 
 Things I need to do:
 
 - github downloader
