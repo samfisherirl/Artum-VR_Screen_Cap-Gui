@@ -8,11 +8,11 @@ testing: https://streamable.com/k56zr7
  
 Things I need to do:
 
-- github downloader
+- ~~github downloader~~
 
-- close gui when not active with menu place holder for resources saving
+- ~~close gui when not active with menu place holder for resources saving~~
 
-- hotkeys
+- ~~hotkeys~~
 
 - visual log reader
 
